@@ -1,8 +1,9 @@
 import { afterNextRender, afterEveryRender, Component, effect, signal } from '@angular/core';
+import { Title } from '../../title/title';
 
 @Component({
   selector: 'app-home-page',
-  imports: [],
+  imports: [Title],
   templateUrl: './home-page.html',
 })
 export class HomePage {
