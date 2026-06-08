@@ -1,4 +1,4 @@
-import { afterNextRender, afterEveryRender, Component, effect } from '@angular/core';
+import { afterNextRender, afterEveryRender, Component, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +6,17 @@ import { afterNextRender, afterEveryRender, Component, effect } from '@angular/c
   templateUrl: './home-page.html',
 })
 export class HomePage {
+  traditionalProperty = 'This is a traditional property.';
+  signalProperty = signal('This is a signal property.');
+
+  changeTraditionalProperty() {
+    this.traditionalProperty = 'Updated traditional property.';
+  }
+
+  changeSignalProperty() {
+    this.signalProperty.set('Updated signal property.');
+  }
+
   constructor() {};
 
   basicEffect = effect((onCleanup) => {
